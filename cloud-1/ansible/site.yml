@@ -1,0 +1,7 @@
+---
+- name: Configuracion completa de Cloud-1
+  hosts: localhost
+  become: yes
+  roles:
+    - docker
+    - deploy_inception

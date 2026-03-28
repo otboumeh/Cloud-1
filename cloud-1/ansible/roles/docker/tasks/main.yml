@@ -1,0 +1,26 @@
+---
+- name: Actualizar el sistema e instalar herramientas básicas
+  apt:
+    name:
+      - nano
+      - git
+      - curl
+      - make
+      - build-essential
+      - python3-pip
+    state: present
+    update_cache: yes
+
+- name: Instalar Docker y dependencias de Python para Docker
+  apt:
+    name:
+      - docker.io
+      - docker-compose
+      - python3-docker  
+    state: present
+
+- name: Asegurar que el servicio de Docker esté encendido
+  service:
+    name: docker
+    state: started
+    enabled: yes
