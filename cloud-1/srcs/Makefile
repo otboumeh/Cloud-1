@@ -38,7 +38,11 @@ fclean: clean
 re: fclean all
 
 ansible:
-	@echo "$(GREEN)Ejecutando Ansible...$(RESET)"
+	@if ! command -v ansible-playbook > /dev/null; then \
+		echo "Ansible no está instalado. Instalando mediante Homebrew..."; \
+		brew install ansible; \
+	fi
+	@echo "Ejecutando Ansible..."
 	ansible-playbook -i ../ansible/inventory.ini ../ansible/site.yml
 
 status:
