@@ -1,3 +1,9 @@
+- name: Copiar la carpeta srcs al servidor remoto
+  copy:
+    src: ../../../srcs/
+    dest: /root/cloud-1/srcs/
+    mode: '0755'
+
 - name: Crear carpetas de datos para los volumenes
   file:
     path: "{{ item }}"
@@ -8,9 +14,7 @@
     - /home/otmane/data/wordpress
 
 - name: Lanzar el proyecto con el Makefile
-  
   command: make all
   args:
     chdir: /root/cloud-1/srcs
-    
     creates: /home/otmane/data/wordpress/wp-config.php
