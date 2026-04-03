@@ -1,6 +1,6 @@
 ---
 - name: Configuracion completa de Cloud-1
-  hosts: localhost
+  hosts: inception_servers
   become: yes
   roles:
     - docker
