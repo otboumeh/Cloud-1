@@ -42,7 +42,7 @@ ansible:
 		echo "Ansible no está instalado. Instalando mediante Homebrew..."; \
 		brew install ansible; \
 	fi
-@echo "Ejecutando Ansible..."
+	@echo "Ejecutando Ansible..."
 	ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ../ansible/inventory.ini ../ansible/site.yml
 
 status:
